@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="css/style.css">
+	
+
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util2.css">
+	<link rel="stylesheet" type="text/css" href="css/main2.css">
+<!--===============================================================================================-->
+	
+	<style>
+		details summary {
+		  display: block;  /* у summary по умолчанию свойство display в значении list-item, потому поддерживается свойство list-style */
+		  width: 10em;
+		  width: -webkit-fit-content;
+		  width: -moz-fit-content;
+		  width: fit-content;  /* блок раскрывается при щелчке по кнопке, а не по всей строке */
+		  border-bottom: 1px dotted;  /* подводка точками или тире часто используется для элементов, с которыми пользователю предлагается взаимодействовать, можно заменить на text-decoration */
+		  outline-style: none;  /* удалить обводку при фокусе */
+		  cursor: pointer;
+		}
+		details summary::-webkit-details-marker {  /* нестандартный псевдоэлемент Google Chrome */
+		  display: none;
+		}
+		
+		body {
+		background: #c7b39b url(images/bg-01.jpg); /* Цвет фона и путь к файлу */
+		}
+		.floating-button {
+		  text-decoration: none;
+		  display: inline-block;
+		  width: 140px;
+		  height: 45px;
+		  line-height: 45px;
+		  border-radius: 45px;
+		  margin: 10px 20px;
+		  font-family: 'Montserrat', sans-serif;
+		  font-size: 11px;
+		  text-transform: uppercase;
+		  text-align: center;
+		  letter-spacing: 3px;
+		  font-weight: 600;
+		  color: #524f4e;
+		  background: white;
+		  box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
+		  transition: .3s;
+		}
+		.floating-button:hover {
+		  background: #2EE59D;
+		  box-shadow: 0 15px 20px rgba(46, 229, 157, .4);
+		  color: white;
+		  transform: translateY(-7px);
+		}
+		.card {
+		  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+		  max-width: 550px;
+		  margin: auto;
+		  text-align: center;
+		  font-family: Roboto;
+		  background: #c7b39b url(images/background39.png); /* Цвет фона и путь к файлу */
+		  border-radius: 50px;
+		}
+
+		.title {
+		  color: grey;
+		  font-size: 15px;
+		}
+		
+		#myInput {
+		  background-image: url('/css/searchicon.png');
+		  background-position: 10px 10px;
+		  background-repeat: no-repeat;
+		  width: 100%;
+		  font-size: 16px;
+		  padding: 12px 20px 12px 40px;
+		  border: 1px solid #ddd;
+		  margin-bottom: 12px;
+		}
+		
+		.floating-buttonSvod {
+		  text-decoration: none;
+		  display: inline-block;
+		  width: 250px;
+		  height: 45px;
+		  line-height: 45px;
+		  border-radius: 45px;
+		  margin: 10px 20px;
+		  font-family: 'Montserrat', sans-serif;
+		  font-size: 11px;
+		  text-transform: uppercase;
+		  text-align: center;
+		  letter-spacing: 3px;
+		  font-weight: 600;
+		  color: #524f4e;
+		  background: white;
+		  box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
+		  transition: .3s;
+		}
+		.floating-buttonSvod:hover {
+		  background: #2EE59D;
+		  box-shadow: 0 15px 20px rgba(46, 229, 157, .4);
+		  color: white;
+		  transform: translateY(-7px);
+		}
+		
+	</style>
+	
+	<script>
+   	function filter (phrase, _id){
+		var words = phrase.value.toLowerCase().split(" ");
+		var table = document.getElementById(_id);
+		var ele;
+		for (var r = 1; r < table.rows.length; r++){
+			ele = table.rows[r].innerHTML.replace(/<[^>]+>/g,"");
+		        var displayStyle = 'none';
+		        for (var i = 0; i < words.length; i++) {
+			    if (ele.toLowerCase().indexOf(words[i])>=0)
+				displayStyle = '';
+			    else {
+				displayStyle = 'none';
+				break;
+			    }
+		        }
+			table.rows[r].style.display = displayStyle;
+		}
+	}
+</script>
+
+<body>
+
+	<div>
+		<center>
+		<details>
+		<summary class="floating-buttonSvod">Сводная таблица</summary>
+		
+		<div class="card">
+		  <h2>Параметры</h2>
+		  <section>
+			<label class="select-label">Выберите факультет:</label>
+			<select class="cs-select cs-skin-rotate">
+				<option value="1">Пусто</option>
+				<option value="2">Факультет 1</option>
+				<option value="3">Факультет 2</option>
+				<option value="4">Факультет 3</option>
+				<option value="5">Факультет 4</option>
+			</select>
+		</section>
+		  <section>
+			<label class="select-label">Выберите кафедру:</label>
+			<select class="cs-select cs-skin-rotate">
+				<option value="1">Пусто</option>
+				<option value="2">Кафедра 1</option>
+				<option value="3">Кафедра 2</option>
+				<option value="4">Кафедра 3</option>
+				<option value="5">Кафедра 4</option>
+			</select>
+		</section>
+		  <section>
+			<label class="select-label">Выберите должность:</label>
+			<select class="cs-select cs-skin-rotate">
+				<option value="1">Пусто</option>
+				<option value="2">Должность 1</option>
+				<option value="3">Должность 2</option>
+				<option value="4">Должность 3</option>
+				<option value="5">Должность 4</option>
+			</select>
+		</section>
+		  <center><a href="" class="floating-button">Создать</a></center>
+		  <p>Российский государственный гидрометеорологический университет</p>
+		  
+		</div>
+		</details>
+		</center>
+	</div>
+	
+	<div>
+		<center>
+		<details>
+		<summary class="floating-buttonSvod">Проверенные отчёты</summary>
+		
+		<div class="content">
+    
+			<div class="container">
+			  
+				<input class="form-control" type="text" placeholder="Параметры для фильтрации" id="search-text" onkeyup="filter(this, 'sf1')">
+			  
+
+			<div class="table-responsive custom-table-responsive">
+
+				<table id = "sf1" class="table custom-table">
+				  <thead>
+					<tr>  
+					  
+					  <th scope="col"><center>ФИО</center></th>
+					  <th scope="col"><center>Должность</center></th>
+					  <th scope="col"><center>Кафедра</center></th>
+					  <th scope="col"><center>Институт</center></th>
+					  <th scope="col"><center>Кол-во баллов</center></th>
+					  <th scope="col"><center>Скачать отчёт</center></th>
+					</tr>
+				  </thead>
+				  <tbody>
+					
+				  </tbody>
+				</table>
+			  </div>
+			  
+		  </div>
+		</div>
+		</details>
+		</center>
+	</div>
+	
+	<div class="content">
+    
+    <div class="container">
+        <h2 class="mb-5"><center>ОТЧЁТЫ</center></h2>
+	  
+		<input class="form-control" type="text" placeholder="Параметры для фильтрации" id="search-text" onkeyup="filter(this, 'sf2')">
+      
+
+      <div class="table-responsive custom-table-responsive">
+
+        <table id = "sf2" class="table custom-table">
+          <thead>
+            <tr>  
+
+              <th scope="col">
+                <label class="control control--checkbox">
+                  <input type="checkbox"  class="js-check-all"/>
+                  <div class="control__indicator"></div>
+                </label>
+              </th>
+              
+              <th scope="col"><center>ФИО</center></th>
+              <th scope="col"><center>Должность</center></th>
+              <th scope="col"><center>Кафедра</center></th>
+              <th scope="col"><center>Институт</center></th>
+              <th scope="col"><center>Кол-во баллов</center></th>
+			  <th scope="col"><center>Скачать отчёт</center></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr scope="row">
+              <th scope="row">
+                <label class="control control--checkbox">
+                  <input type="checkbox"/>
+                  <div class="control__indicator"></div>
+                </label>
+              </th>
+              <td>
+                <center>Романов Николай Александрович</center>
+              </td>
+              <td><center>Преподаватель</center></td>
+              <td>
+                <center>ПИ</center>
+              </td>
+              <td><center>ИСИГТ</center></td>
+              <td><center>321</center></td>
+			  <td><center><a href="" class="floating-button">Скачать</a></center></td>
+            </tr>
+            <tr class="spacer"><td colspan="100"></td></tr>
+			
+			<tr scope="row">
+              <th scope="row">
+                <label class="control control--checkbox">
+                  <input type="checkbox"/>
+                  <div class="control__indicator"></div>
+                </label>
+              </th>
+              <td>
+                <center>Торжков Сергей Валентинович</center>
+              </td>
+              <td><center>Декан</center></td>
+              <td>
+                <center>ФИЗ</center>
+              </td>
+              <td><center>ФСФ</center></td>
+              <td><center>10</center></td>
+			  <td><center><a href="" class="floating-button">Скачать</a></center></td>
+            </tr>
+            <tr class="spacer"><td colspan="100"></td></tr>
+			
+			<tr scope="row">
+              <th scope="row">
+                <label class="control control--checkbox">
+                  <input type="checkbox"/>
+                  <div class="control__indicator"></div>
+                </label>
+              </th>
+              <td>
+                <center>Томилова Екатерина Борисовна</center>
+              </td>
+              <td><center>Директор</center></td>
+              <td>
+                <center>ФГ</center>
+              </td>
+              <td><center>ФГМО</center></td>
+              <td><center>112</center></td>
+			  <td><center><a href="" class="floating-button">Скачать</a></center></td>
+            </tr>
+            <tr class="spacer"><td colspan="100"></td></tr>
+            
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+	<center><a class="floating-button">Подтвердить</a></center>
+	
+	  
+  </div>
+
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main2.js"></script>
+	
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>
