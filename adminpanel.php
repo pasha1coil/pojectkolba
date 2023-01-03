@@ -1,3 +1,7 @@
+<?php
+session_start();
+$connection =mysqli_connect('pojectkolba','root','', 'server2');
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -167,32 +171,36 @@
 		  <h2>Параметры</h2>
 		  <section>
 			<label class="select-label">Выберите факультет:</label>
-			<select class="cs-select cs-skin-rotate">
-				<option value="1">Пусто</option>
-				<option value="2">Факультет 1</option>
-				<option value="3">Факультет 2</option>
-				<option value="4">Факультет 3</option>
-				<option value="5">Факультет 4</option>
-			</select>
+              <select class='cs-select cs-skin-rotate', name='institute'>
+                  <?php
+                  $institute = mysqli_query($connection, "SELECT name FROM table_institute");
+                    while ($row = $institute->fetch_assoc()){
+                        echo "<option value=\"institute1\">" . $row['name'] . "</option>";
+                    }
+              ?>
+              </select>
 		</section>
 		  <section>
 			<label class="select-label">Выберите кафедру:</label>
-			<select class="cs-select cs-skin-rotate">
-				<option value="1">Пусто</option>
-				<option value="2">Кафедра 1</option>
-				<option value="3">Кафедра 2</option>
-				<option value="4">Кафедра 3</option>
-				<option value="5">Кафедра 4</option>
+			<select class="cs-select cs-skin-rotate", name = "department">
+                <?php
+                $department = mysqli_query($connection, "SELECT name FROM table_department");
+                while ($row = $department->fetch_assoc()){
+                    echo "<option value=\"department1\">" . $row['name'] . "</option>";
+                }
+                ?>
 			</select>
 		</section>
 		  <section>
 			<label class="select-label">Выберите должность:</label>
 			<select class="cs-select cs-skin-rotate">
-				<option value="1">Пусто</option>
-				<option value="2">Должность 1</option>
-				<option value="3">Должность 2</option>
-				<option value="4">Должность 3</option>
-				<option value="5">Должность 4</option>
+				<!--<option value="1">Пусто</option>-->
+                <?php
+                $position = mysqli_query($connection, "SELECT position FROM table_position WHERE position != 'admin'");
+                while ($row = $position->fetch_assoc()){
+                    echo "<option value=\"position1\">" . $row['position'] . "</option>";
+                }
+                ?>
 			</select>
 		</section>
 		  <center><a href="" class="floating-button">Создать</a></center>

@@ -17,7 +17,7 @@ if (isset($_POST['username']) && isset($_POST['pass'])) {
                 echo "Error: Null in position";
                 break;
             case "admin":
-                header('Location: ../adminpanel.html');
+                header('Location: ../adminpanel.php');
                 break;
             case "Prepodavatel":
                 header('Location: ../prepod.php');

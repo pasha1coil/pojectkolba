@@ -3,12 +3,12 @@ session_start();
 require ('connect.php');
 $username=$_SESSION['username'];
 $date=$_SESSION['date'];
-$countfiles = $_SESSION['countfiles2']; // количество файлов
+$numfiles = $_SESSION['numfiles2']; // количество файлов
 $uploadFileDir = "./upload_files/$username/$date/2/"; // Путь загрузки файлов
 /*file_put_contents("./upload_files/$username/$date/2/counts.txt", "count = $countfiles");*/
 if (!is_dir($uploadFileDir) ){ // Создаётся каждый раз при нажатии кнопки. Лучше доработать
     mkdir($uploadFileDir,0700);}
-for ($i = 0; $i < $countfiles; $i++) {
+for ($i = 0; $i < $numfiles; $i++) {
     $filename = $_FILES['files2']['name'][$i];
     /*move_uploaded_file($_FILES['files2']['tmp_name'][$i], $uploadFileDir . $i .' '.  $filename);*/
     switch ($i) { // Правильно работает, если загружать в 1 показатель только 1 файл

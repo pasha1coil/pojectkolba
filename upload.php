@@ -7,18 +7,18 @@ $date=date('y-m-d');
 $time=date("h:i:s");
 $_SESSION['date']=$date;
 $FileDir="./upload_files/$username/$date/";
-$countfiles1= count($_FILES['files1']['name']);
-$_SESSION['countfiles1']=$countfiles1;
-$countfiles2= count($_FILES['files2']['name']);
-$_SESSION['countfiles2']=$countfiles2;
-$countfiles3= count($_FILES['files3']['name']);
-$_SESSION['countfiles3']=$countfiles3;
+$numfiles1= count($_FILES['files1']['name']);
+$_SESSION['numfiles1']=$numfiles1;
+$numfiles2= count($_FILES['files2']['name']);
+$_SESSION['numfiles2']=$numfiles2;
+$numfiles3= count($_FILES['files3']['name']);
+$_SESSION['numfiles3']=$numfiles3;
 
 
 if (!is_dir($FileDir)){
     mkdir($FileDir,0700);}
 
-/*file_put_contents("./upload_files/$username/$date/counts.txt", "$countfiles1, $countfiles2, $countfiles3, $date, $time, $position");*/
+file_put_contents("./upload_files/$username/$date/counts.txt", " $numfiles1, $numfiles2, $numfiles3, $date, $time, $position");
 
 if(isset($_POST['uploadBtn'])) {
     require_once("upload1.php"); // Загрузка файлов УЧЕБНО-МЕТОДИЧЕСКАЯ РАБОТА

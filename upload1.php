@@ -3,12 +3,12 @@ session_start();
 require ('connect.php');
 $username=$_SESSION['username'];
 $date=$_SESSION['date'];
-$countfiles = $_SESSION['countfiles1']; // Добавить это в upload как проверку на существование
+$numfiles = $_SESSION['numfiles1']; // Добавить это в upload как проверку на существование
 $uploadFileDir = "./upload_files/$username/$date/1/"; // Путь загрузки файлов
 /*file_put_contents("./upload_files/$username/$date/1/counts.txt", "count = $countfiles");*/
 if (!is_dir($uploadFileDir)){ // Создаётся каждый раз при нажатии кнопки. Лучше доработать
     mkdir($uploadFileDir,0700);}
-for ($i = 0; $i < $countfiles; $i++) {
+for ($i = 0; $i < $numfiles; $i++) {
     $filename = $_FILES['files1']['name'][$i];
     /*move_uploaded_file($_FILES['files1']['tmp_name'][$i], $uploadFileDir . $i .' '. $filename);*/
     switch ($i) { // Правильно работает, если загружать в 1 показатель только 1 файл
@@ -85,15 +85,12 @@ for ($i = 0; $i < $countfiles; $i++) {
             move_uploaded_file($_FILES['files1']['tmp_name'][$i], $uploadFileDir . '1.14' . ' ' . $filename);
             break;
         case 24:
-            move_uploaded_file($_FILES['files1']['tmp_name'][$i], $uploadFileDir . '1.15' . ' ' . $filename);
-            break;
-        case 25:
             move_uploaded_file($_FILES['files1']['tmp_name'][$i], $uploadFileDir . '1.15.1' . ' ' . $filename);
             break;
-        case 26:
+        case 25:
             move_uploaded_file($_FILES['files1']['tmp_name'][$i], $uploadFileDir . '1.15.2' . ' ' . $filename);
             break;
-        case 27:
+        case 26:
             move_uploaded_file($_FILES['files1']['tmp_name'][$i], $uploadFileDir . '1.16' . ' ' . $filename);
             break;
     }
